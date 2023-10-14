@@ -1,0 +1,12 @@
+@Library('github-jenkins-pipeline') _
+
+dockerBuildPipeline(
+        mainBranchCron: '@monthly',
+        imageBuilder: [
+                baseImage        : 'perl:5-threaded',
+                registryRepoName : 'kartaltabak/sqlserver2pgsql',
+                imageTestCommands: [
+                        'sqlserver2pgsql --help'
+                ]
+        ]
+)
